@@ -593,7 +593,7 @@
 /** DỮ LIỆU HỆ THỐNG **/
 const CELLS = [
   { label:"+10", color: "#FF6B6B", val: 10 }, { label:"+20", color: "#FF8E72", val: 20 },
-  { label:"+50", color: "#FFA500", val: 50 }, { label:"-10", color: "#FFD93D", val: -10 },
+  { label:"+30", color: "#FFA500", val: 50 }, { label:"-10", color: "#FFD93D", val: -10 },
   { label:"X2", color: "#6BCB77", val: 0 }, { label:"+10", color: "#4D96FF", val: 10 },
   { label:"+20", color: "#5F4BE6", val: 20 }, { label:"TẤN CÔNG", color: "#E535AB", val: -999 },
   { label:"+10", color: "#FF006E", val: 10 }, { label:"PHÒNG THỦ", color: "#00D4FF", val: 0 },
@@ -914,6 +914,7 @@ let teams = [
 let currentQ = 0;
 let isSpinning = false;
 let wheelAngle = 0;
+let nextQuestionOnSpin = false; // if true, next spin will advance to the next question automatically
 
 /** LOGIC VÒNG QUAY **/
 const canvas = document.getElementById("wheel");
@@ -959,6 +960,11 @@ document.getElementById("btnSpin").onclick = () => {
             let idx = Math.floor(norm / slice);
             document.getElementById("resultDisplay").innerText = "KẾT QUẢ: " + CELLS[idx].label;
             addLog("Quay vào ô: " + CELLS[idx].label);
+            // If an answer was revealed previously, advance to next question on this spin
+            if(nextQuestionOnSpin) {
+                currentQ = Math.min(QUESTIONS.length - 1, currentQ + 1);
+                nextQuestionOnSpin = false;
+            }
             // Tự động hiển thị popup câu hỏi
             showQuestionModal();
         }
@@ -1142,12 +1148,15 @@ function revealAnswerModal() {
     const el = document.getElementById(`modalOpt-${correctIdx}`);
     if(el) el.classList.add('correct');
     addLog(`Đã mở đáp án câu ${currentQ + 1}`);
+    // mark that next spin should move to next question automatically
+    nextQuestionOnSpin = true;
     // enable next
     const nextBtn = document.getElementById('modalNextBtn'); if(nextBtn) nextBtn.disabled = false;
 }
 
 function nextQuestionModal() {
     currentQ = Math.min(QUESTIONS.length - 1, currentQ + 1);
+    nextQuestionOnSpin = false; // user advanced manually, cancel pending auto-advance
     renderQuestionModal();
 }
 
