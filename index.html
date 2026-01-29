@@ -228,6 +228,12 @@
       border-color: white;
       box-shadow: 0 0 20px rgba(0, 168, 204, 0.5);
     }
+    .opt.wrong {
+      background: linear-gradient(135deg, var(--bad), #ff7aa6) !important;
+      color: white;
+      border-color: white;
+      box-shadow: 0 0 20px rgba(255, 0, 110, 0.25);
+    }
 
     /* Utils */
     .log { 
@@ -423,6 +429,12 @@
       color: white;
       border-color: white;
       box-shadow: 0 0 20px rgba(0, 168, 204, 0.25);
+    }
+    .modal-opt.wrong {
+      background: linear-gradient(135deg, var(--bad), #ff7aa6) !important;
+      color: white;
+      border-color: white;
+      box-shadow: 0 0 20px rgba(255, 0, 110, 0.25);
     }
     .modal-buttons {
       display: flex;
@@ -915,6 +927,8 @@ let currentQ = 0;
 let isSpinning = false;
 let wheelAngle = 0;
 let nextQuestionOnSpin = false; // if true, next spin will advance to the next question automatically
+let questionAnswered = false;
+let modalAnswered = false;
 
 /** LOGIC VÒNG QUAY **/
 const canvas = document.getElementById("wheel");
@@ -1044,14 +1058,38 @@ function renderQuestion() {
     document.getElementById("qText").innerText = q.t;
     const optDiv = document.getElementById("qOptions");
     optDiv.innerHTML = "";
+    // reset answered state
+    questionAnswered = false;
     q.o.forEach((o, i) => {
         optDiv.innerHTML += `<div class="opt" id="opt-${i}">${String.fromCharCode(65+i)}. ${o}</div>`;
+    });
+
+    // attach click handlers
+    q.o.forEach((o, i) => {
+        const el = document.getElementById(`opt-${i}`);
+        if(!el) return;
+        el.onclick = () => {
+            if(questionAnswered) return;
+            questionAnswered = true;
+            const correctIdx = QUESTIONS[currentQ].a;
+            if(i === correctIdx) {
+                el.classList.add('correct');
+                addLog(`Chọn đáp án ${String.fromCharCode(65+i)} đúng cho câu ${currentQ+1}`);
+            } else {
+                el.classList.add('wrong');
+                const corr = document.getElementById(`opt-${correctIdx}`);
+                if(corr) corr.classList.add('correct');
+                addLog(`Chọn đáp án ${String.fromCharCode(65+i)} SAI cho câu ${currentQ+1}`);
+            }
+        };
     });
 }
 
 function revealAnswer() {
     const correctIdx = QUESTIONS[currentQ].a;
-    document.getElementById(`opt-${correctIdx}`).classList.add('correct');
+    const el = document.getElementById(`opt-${correctIdx}`);
+    if(el) el.classList.add('correct');
+    questionAnswered = true;
     addLog(`Đã mở đáp án câu ${currentQ + 1}`);
 }
 
@@ -1098,6 +1136,8 @@ function renderQuestionModal() {
     document.getElementById("modalQText").innerText = q.t;
     const optDiv = document.getElementById("modalQOptions");
     optDiv.innerHTML = "";
+    // reset modal answered state
+    modalAnswered = false;
     q.o.forEach((o, i) => {
         optDiv.innerHTML += `<div class="modal-opt" id="modalOpt-${i}">${String.fromCharCode(65+i)}. ${o}</div>`;
     });
@@ -1107,8 +1147,27 @@ function renderQuestionModal() {
     const startBtn = document.getElementById('modalStartBtn'); if(startBtn) { startBtn.disabled = false; startBtn.style.opacity = ''; }
     const nextBtn = document.getElementById('modalNextBtn'); if(nextBtn) nextBtn.disabled = false;
     const revealBtn = document.getElementById('modalRevealBtn'); if(revealBtn) revealBtn.disabled = false;
-    // remove previous answer highlight
-    q.o.forEach((o, i) => { const el = document.getElementById(`modalOpt-${i}`); if(el) el.classList.remove('correct'); });
+    // remove previous answer highlight and attach click handlers
+    q.o.forEach((o, i) => { 
+        const el = document.getElementById(`modalOpt-${i}`);
+        if(el) {
+            el.classList.remove('correct','wrong');
+            el.onclick = () => {
+                if(modalAnswered) return;
+                modalAnswered = true;
+                const correctIdx = QUESTIONS[currentQ].a;
+                if(i === correctIdx) {
+                    el.classList.add('correct');
+                    addLog(`(Modal) Chọn đáp án ${String.fromCharCode(65+i)} đúng cho câu ${currentQ+1}`);
+                } else {
+                    el.classList.add('wrong');
+                    const corr = document.getElementById(`modalOpt-${correctIdx}`);
+                    if(corr) corr.classList.add('correct');
+                    addLog(`(Modal) Chọn đáp án ${String.fromCharCode(65+i)} SAI cho câu ${currentQ+1}`);
+                }
+            };
+        }
+    });
 }
 
 let modalTimerInterval = null;
@@ -1147,6 +1206,7 @@ function revealAnswerModal() {
     const correctIdx = QUESTIONS[currentQ].a;
     const el = document.getElementById(`modalOpt-${correctIdx}`);
     if(el) el.classList.add('correct');
+    modalAnswered = true;
     addLog(`Đã mở đáp án câu ${currentQ + 1}`);
     // mark that next spin should move to next question automatically
     nextQuestionOnSpin = true;
