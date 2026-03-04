@@ -608,311 +608,41 @@ const CELLS = [
   { label:"+30", color: "#FFA500", val: 50 }, { label:"-10", color: "#FFD93D", val: -10 },
   { label:"X2", color: "#6BCB77", val: 0 }, { label:"+10", color: "#4D96FF", val: 10 },
   { label:"+20", color: "#5F4BE6", val: 20 }, { label:"TẤN CÔNG", color: "#E535AB", val: -999 },
-  { label:"+10", color: "#FF006E", val: 10 }, { label:"PHÒNG THỦ", color: "#00D4FF", val: 0 },
+  { label:"+10", color: "#FF006E", val: 10 },
   { label:"CƯỚP LƯỢT", color: "#FB5607", val: 0 }
 ];
 
 const QUESTIONS = [
-  {
-    t: "Gia đình trong thời kỳ quá độ lên CNXH được xem là gì?",
-    o: [
-      "Đơn vị kinh tế độc lập",
-      "Tế bào của xã hội",
-      "Tổ chức chính trị",
-      "Thiết chế nhà nước"
-    ],
-    a: 1
-  },
-  {
-    t: "Chức năng nào KHÔNG phải chức năng cơ bản của gia đình?",
-    o: [
-      "Chức năng tái sản xuất con người",
-      "Chức năng kinh tế",
-      "Chức năng giáo dục",
-      "Chức năng quản lý nhà nước"
-    ],
-    a: 3
-  },
-  {
-    t: "Gia đình xã hội chủ nghĩa được xây dựng trên cơ sở nào?",
-    o: [
-      "Quan hệ huyết thống",
-      "Quan hệ kinh tế tư bản",
-      "Quan hệ hôn nhân tự nguyện, tiến bộ",
-      "Quan hệ áp đặt truyền thống"
-    ],
-    a: 2
-  },
-  {
-    t: "Nguyên tắc cơ bản của hôn nhân trong xã hội XHCN là gì?",
-    o: [
-      "Cha mẹ quyết định",
-      "Môn đăng hộ đối",
-      "Tự nguyện, tiến bộ, một vợ một chồng",
-      "Lợi ích kinh tế"
-    ],
-    a: 2
-  },
-  {
-    t: "Vai trò của gia đình đối với xã hội là gì?",
-    o: [
-      "Chỉ phục vụ đời sống cá nhân",
-      "Là nơi tiêu dùng",
-      "Là môi trường hình thành nhân cách",
-      "Không ảnh hưởng xã hội"
-    ],
-    a: 2
-  },
-  {
-    t: "Trong thời kỳ quá độ, gia đình chịu tác động mạnh mẽ từ yếu tố nào?",
-    o: [
-      "Phong tục cổ truyền",
-      "Biến đổi kinh tế – xã hội",
-      "Tín ngưỡng tôn giáo",
-      "Thiên nhiên"
-    ],
-    a: 1
-  },
-  {
-    t: "Bình đẳng giới trong gia đình XHCN thể hiện ở điểm nào?",
-    o: [
-      "Nam giới quyết định mọi việc",
-      "Nữ giới phụ thuộc",
-      "Vợ chồng bình đẳng về quyền và nghĩa vụ",
-      "Con cái quyết định"
-    ],
-    a: 2
-  },
-  {
-    t: "Gia đình là cầu nối giữa cá nhân với yếu tố nào?",
-    o: [
-      "Nhà nước",
-      "Xã hội",
-      "Thị trường",
-      "Doanh nghiệp"
-    ],
-    a: 1
-  },
-  {
-    t: "Một trong những vấn đề nổi bật của gia đình hiện nay là gì?",
-    o: [
-      "Gia đình quá đông con",
-      "Bạo lực gia đình",
-      "Không có hôn nhân",
-      "Xóa bỏ gia đình"
-    ],
-    a: 1
-  },
-  {
-    t: "Giáo dục trong gia đình có vai trò gì?",
-    o: [
-      "Không quan trọng",
-      "Chỉ bổ trợ cho nhà trường",
-      "Đặt nền tảng hình thành nhân cách",
-      "Thay thế giáo dục xã hội"
-    ],
-    a: 2
-  },
-  {
-    t: "Gia đình truyền thống và gia đình hiện đại khác nhau chủ yếu ở đâu?",
-    o: [
-      "Số lượng thành viên",
-      "Quan hệ bình đẳng và dân chủ",
-      "Không gian sống",
-      "Thu nhập"
-    ],
-    a: 1
-  },
-  {
-    t: "Nhà nước XHCN cần làm gì để xây dựng gia đình tiến bộ?",
-    o: [
-      "Không can thiệp",
-      "Ban hành chính sách bảo vệ gia đình",
-      "Xóa bỏ mô hình gia đình",
-      "Giao cho thị trường"
-    ],
-    a: 1
-  },
-  {
-    t: "Gia đình hạt nhân là gì?",
-    o: [
-      "Gia đình nhiều thế hệ",
-      "Gia đình chỉ có cha mẹ và con cái",
-      "Gia đình dòng họ",
-      "Gia đình tập thể"
-    ],
-    a: 1
-  },
-  {
-    t: "Sự biến đổi chức năng kinh tế của gia đình thể hiện ở đâu?",
-    o: [
-      "Gia đình không sản xuất",
-      "Gia đình chuyển từ sản xuất sang tiêu dùng",
-      "Gia đình chỉ làm nông",
-      "Gia đình không cần thu nhập"
-    ],
-    a: 1
-  },
-  {
-    t: "Gia đình có vai trò gì trong giữ gìn bản sắc văn hóa?",
-    o: [
-      "Không có vai trò",
-      "Là nơi lưu giữ và truyền thụ văn hóa",
-      "Chỉ phục vụ cá nhân",
-      "Thay thế nhà nước"
-    ],
-    a: 1
-  },
-  {
-    t: "Bạo lực gia đình phản ánh điều gì?",
-    o: [
-      "Sự tiến bộ xã hội",
-      "Mâu thuẫn kinh tế",
-      "Sự suy thoái giá trị gia đình",
-      "Quy luật tự nhiên"
-    ],
-    a: 2
-  },
-  {
-    t: "Trong gia đình XHCN, trẻ em được xem là gì?",
-    o: [
-      "Tài sản của cha mẹ",
-      "Đối tượng bị quản lý",
-      "Chủ thể có quyền",
-      "Nguồn lao động"
-    ],
-    a: 2
-  },
-  {
-    t: "Gia đình góp phần ổn định xã hội thông qua yếu tố nào?",
-    o: [
-      "Giáo dục đạo đức",
-      "Kiểm soát kinh tế",
-      "Quản lý hành chính",
-      "Cưỡng chế pháp luật"
-    ],
-    a: 0
-  },
-  {
-    t: "Một trong những thách thức của gia đình hiện đại là gì?",
-    o: [
-      "Khoảng cách thế hệ",
-      "Quá đông thành viên",
-      "Thiếu nhà nước",
-      "Không có pháp luật"
-    ],
-    a: 0
-  },
-  {
-    t: "Gia đình trong thời kỳ quá độ mang tính chất gì?",
-    o: [
-      "Thuần truyền thống",
-      "Thuần hiện đại",
-      "Vừa truyền thống vừa hiện đại",
-      "Không ổn định"
-    ],
-    a: 2
-  },
-  {
-    t: "Quan hệ giữa gia đình và xã hội là quan hệ gì?",
-    o: [
-      "Đối lập",
-      "Tách rời",
-      "Biện chứng, tác động qua lại",
-      "Không liên quan"
-    ],
-    a: 2
-  },
-  {
-    t: "Vai trò của phụ nữ trong gia đình XHCN được khẳng định như thế nào?",
-    o: [
-      "Phụ thuộc nam giới",
-      "Bình đẳng và tham gia quyết định",
-      "Chỉ làm nội trợ",
-      "Không có vai trò"
-    ],
-    a: 1
-  },
-  {
-    t: "Gia đình là môi trường đầu tiên của quá trình nào?",
-    o: [
-      "Lao động",
-      "Giáo dục",
-      "Xã hội hóa cá nhân",
-      "Chính trị hóa"
-    ],
-    a: 2
-  },
-  {
-    t: "Gia đình XHCN hướng tới giá trị nào?",
-    o: [
-      "Gia trưởng",
-      "Bất bình đẳng",
-      "No ấm, tiến bộ, hạnh phúc",
-      "Phân biệt giới"
-    ],
-    a: 2
-  },
-  {
-    t: "Sự thay đổi mô hình gia đình phản ánh điều gì?",
-    o: [
-      "Sự suy thoái xã hội",
-      "Sự phát triển của lực lượng sản xuất",
-      "Sự mất ổn định chính trị",
-      "Sự ngẫu nhiên"
-    ],
-    a: 1
-  },
-  {
-    t: "Gia đình có vai trò gì trong việc hình thành nhân cách?",
-    o: [
-      "Thứ yếu",
-      "Quyết định ban đầu",
-      "Không liên quan",
-      "Thay thế xã hội"
-    ],
-    a: 1
-  },
-  {
-    t: "Chính sách gia đình của Nhà nước XHCN nhằm mục tiêu gì?",
-    o: [
-      "Kiểm soát dân số",
-      "Phát triển kinh tế",
-      "Xây dựng gia đình bền vững",
-      "Xóa bỏ gia đình"
-    ],
-    a: 2
-  },
-  {
-    t: "Gia đình và nhà trường có mối quan hệ như thế nào?",
-    o: [
-      "Đối lập",
-      "Thay thế nhau",
-      "Bổ sung và hỗ trợ nhau",
-      "Không liên quan"
-    ],
-    a: 2
-  },
-  {
-    t: "Gia đình góp phần tái sản xuất xã hội ở khía cạnh nào?",
-    o: [
-      "Tái sản xuất của cải",
-      "Tái sản xuất con người",
-      "Tái sản xuất quyền lực",
-      "Tái sản xuất pháp luật"
-    ],
-    a: 1
-  },
-  {
-    t: "Gia đình XHCN được xây dựng theo hướng nào?",
-    o: [
-      "Khép kín",
-      "Bình đẳng, dân chủ, tiến bộ",
-      "Gia trưởng",
-      "Phân tầng giai cấp"
-    ],
-    a: 1
-  }
+  { t: "Thực dân Pháp nổ súng xâm lược Việt Nam vào ngày nào?", o: ["1/9/1858","2/9/1945","19/8/1945","3/2/1930"], a: 0 },
+  { t: "Pháp nổ súng xâm lược Việt Nam đầu tiên ở đâu?", o: ["Huế","Hà Nội","Đà Nẵng","Sài Gòn"], a: 2 },
+  { t: "Sau khi Pháp xâm lược, Việt Nam trở thành gì?", o: ["Thuộc địa của Pháp","Đồng minh của Pháp","Quốc gia độc lập","Thuộc địa của Anh"], a: 0 },
+  { t: "Phong trào yêu nước theo lập trường phong kiến tiêu biểu là phong trào nào?", o: ["Đông Du","Duy Tân","Cần Vương","Việt Minh"], a: 2 },
+  { t: "Các phong trào yêu nước trước năm 1930 đều có kết quả như thế nào?", o: ["Thành công","Thất bại","Không xảy ra","Được Pháp ủng hộ"], a: 1 },
+  { t: "Sự thất bại của các phong trào yêu nước cho thấy điều gì?", o: ["Cách mạng đã thành công","Cách mạng không cần lãnh đạo","Khủng hoảng đường lối cứu nước","Không cần đấu tranh"], a: 2 },
+  { t: "Cách mạng Tháng Mười Nga thắng lợi vào năm nào?", o: ["1914","1917","1920","1930"], a: 1 },
+  { t: "Cách mạng Tháng Mười Nga do ai lãnh đạo?", o: ["Karl Marx","Hồ Chí Minh","V.I. Lênin","Stalin"], a: 2 },
+  { t: "Quốc tế Cộng sản được thành lập vào năm nào?", o: ["1917","1918","1919","1920"], a: 2 },
+  { t: "Quốc tế Cộng sản còn gọi là gì?", o: ["Quốc tế I","Quốc tế II","Quốc tế III","Quốc tế IV"], a: 2 },
+  { t: "Tháng 7/1920, Nguyễn Ái Quốc đọc tài liệu nào của Lênin?", o: ["Tuyên ngôn Cộng sản","Luận cương về vấn đề dân tộc và thuộc địa","Tư bản luận","Đường cách mệnh"], a: 1 },
+  { t: "Việc tiếp nhận Luận cương của Lênin giúp Nguyễn Ái Quốc xác định con đường gì?", o: ["Con đường phong kiến","Con đường tư sản","Con đường cách mạng vô sản","Con đường quân chủ"], a: 2 },
+  { t: "Nguyễn Ái Quốc tham gia sáng lập Đảng Cộng sản Pháp vào năm nào?", o: ["1919","1920","1925","1930"], a: 1 },
+  { t: "Sự kiện Nguyễn Ái Quốc tham gia sáng lập Đảng Cộng sản Pháp diễn ra tại đại hội nào?", o: ["Đại hội Paris","Đại hội Tours","Đại hội Moskva","Đại hội Bắc Kinh"], a: 1 },
+  { t: "Sự kiện năm 1920 đánh dấu điều gì?", o: ["Nguyễn Ái Quốc trở thành người cộng sản đầu tiên của Việt Nam","Việt Nam giành độc lập","Pháp rút khỏi Việt Nam","Thành lập Đảng Cộng sản Việt Nam"], a: 0 },
+  { t: "Hội Việt Nam Cách mạng Thanh niên được thành lập năm nào?", o: ["1923","1925","1927","1929"], a: 1 },
+  { t: "Hội Việt Nam Cách mạng Thanh niên được thành lập ở đâu?", o: ["Hà Nội","Sài Gòn","Quảng Châu","Bắc Kinh"], a: 2 },
+  { t: "Người sáng lập Hội Việt Nam Cách mạng Thanh niên là ai?", o: ["Phan Bội Châu","Nguyễn Ái Quốc","Phan Châu Trinh","Trần Phú"], a: 1 },
+  { t: "Tờ báo của Hội Việt Nam Cách mạng Thanh niên là gì?", o: ["Nhân dân","Thanh niên","Độc lập","Cứu quốc"], a: 1 },
+  { t: "Tác phẩm \"Đường cách mệnh\" được xuất bản năm nào?", o: ["1925","1926","1927","1929"], a: 2 },
+  { t: "Năm 1929 có bao nhiêu tổ chức cộng sản ra đời ở Việt Nam?", o: ["1","2","3","4"], a: 2 },
+  { t: "Tổ chức cộng sản nào ra đời đầu tiên năm 1929?", o: ["An Nam Cộng sản Đảng","Đông Dương Cộng sản Đảng","Đông Dương Cộng sản Liên đoàn","Việt Nam Cách mạng Thanh niên"], a: 1 },
+  { t: "An Nam Cộng sản Đảng được thành lập vào thời gian nào?", o: ["6/1929","9/1929","11/1929","1/1930"], a: 2 },
+  { t: "Đông Dương Cộng sản Liên đoàn được thành lập vào tháng nào năm 1929?", o: ["3","6","9","12"], a: 2 },
+  { t: "Sự tồn tại riêng rẽ của 3 tổ chức cộng sản dẫn đến yêu cầu gì?", o: ["Giải thể","Thống nhất lại","Chia tách thêm","Ngừng hoạt động"], a: 1 },
+  { t: "Hội nghị hợp nhất các tổ chức cộng sản diễn ra vào năm nào?", o: ["1929","1930","1935","1945"], a: 1 },
+  { t: "Hội nghị thành lập Đảng diễn ra ở đâu?", o: ["Hà Nội","Quảng Châu","Hương Cảng","Bắc Kinh"], a: 2 },
+  { t: "Người chủ trì hội nghị thành lập Đảng là ai?", o: ["Trần Phú","Nguyễn Ái Quốc","Lê Hồng Phong","Hà Huy Tập"], a: 1 },
+  { t: "Đảng Cộng sản Việt Nam được thành lập vào năm nào?", o: ["1929","1930","1945","1954"], a: 1 },
+  { t: "Sự ra đời của Đảng Cộng sản Việt Nam đã chấm dứt điều gì?", o: ["Sự xâm lược của Pháp","Khủng hoảng đường lối cứu nước","Chiến tranh thế giới","Chế độ phong kiến"], a: 1 }
 ];
 
 let teams = [
